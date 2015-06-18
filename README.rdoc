@@ -6,19 +6,20 @@ A plugin which adds multiple links to the top menu of Redmine.
 
 == Compatibility
 
-Redmine 2.3.x, 2.2.x, 2.1.x, 2.0.x
+Redmine 3.0.x, 2.3.x, 2.2.x, 2.1.x, 2.0.x
 
 == Authors
 
 * Tide [https://github.com/Tide]
 * Yuki Kita [https://github.com/YukiKita]
+* SamSK [https://github.com/samsk]
 
 == Features
 
 - Multiple links
 - Link sorting
 - Each link can be viewed in one of 3 states : Everyone, Users Only, Admins Only
-- Each link has the option ot open in a new window
+- Each link has the option to open in a new window
 - Each link can be enabled/disabled at any time
 
 == Installation and Setup
