@@ -1,5 +1,6 @@
 class MenuLink < ActiveRecord::Base
   acts_as_list
+  attr_accessible :name, :url, :link_type, :is_enabled, :new_window, :relative_url
 
   validates_presence_of :name, :url
   validates_length_of :name, :maximum => 60

@@ -6,14 +6,12 @@ class MenuLinksController < ApplicationController
   after_filter  :show_menu_links, :only => [:destroy, :create, :update, :move]
 
   def index
-    @menu_links_count = MenuLink.find(:all).count
+    @menu_links_count = MenuLink.count
     @menu_links_pages = Paginator.new(@menu_links_count, per_page_option, params[:page])
     @offset ||= @menu_links_pages.offset
-    @menu_links = MenuLink.find(:all,
-                          :order => "#{MenuLink.table_name}.position ASC",
-                          :offset => @offset,
-                          :limit => per_page_option)
-                          
+    @menu_links = MenuLink.order("#{MenuLink.table_name}.position ASC")
+    	.offset(@offset).limit(per_page_option)
+
     render :action => "index", :layout => false if request.xhr?
   end
 
@@ -41,7 +39,7 @@ class MenuLinksController < ApplicationController
       flash[:notice] = l(:notice_successful_update)
       redirect_to :action => 'index'
     else
-      render :action => 'edit'
+     render :action => 'edit'
     end
   end
 
