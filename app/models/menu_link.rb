@@ -48,6 +48,17 @@ class MenuLink < ActiveRecord::Base
   end
 
   def self.show
+    Redmine::MenuManager.map(:top_menu).delete(:help);
+    Redmine::MenuManager.map(:top_menu).delete(:my_page);
+    Redmine::MenuManager.map(:top_menu).delete(:home);
+    Redmine::MenuManager.map(:top_menu).delete(:projects);
+
+    Redmine::MenuManager.map(:application_menu).delete(:issues);
+    Redmine::MenuManager.map(:application_menu).push :issues,   {:controller => 'issues', :action => 'index'},
+      :if => Proc.new {User.current.allowed_to?(:view_issues, nil, :global => true)},
+      :caption => :label_issue_plural,
+      :before => :projects
+
     self.each_enabled_link do |menu_link|
       option = {:caption=>menu_link.name, :before => :administration}
       option[:html] = {:target => '_blank'} if menu_link.new_window
