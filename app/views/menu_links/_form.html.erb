@@ -5,6 +5,7 @@
   <p><%= f.text_field :name, :required => true %></p>
   <p><%= f.text_field :url, :required => true ,:size => 100 %></p>
   <p><%= f.select :link_type, [[l(:label_everyone), MenuLink::EVERYONE],[l(:label_users_only), MenuLink::USERS_ONLY],[l(:label_administrators_only), MenuLink::ADMINISTRATORS_ONLY]] %></p>
+  <p><%= f.select :deploy_to, [[l(:label_deploytopmenu), MenuLink::TOPMENU],[l(:label_deployaccountmenu), MenuLink::ACCOUNTMENU]] %></p>
   <p><%= f.check_box :is_enabled %></p>
   <p><%= f.check_box :new_window %></p>
   <p><%= f.check_box :relative_url %></p>

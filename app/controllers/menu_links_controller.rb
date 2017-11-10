@@ -9,7 +9,7 @@ class MenuLinksController < ApplicationController
     @menu_links_count = MenuLink.count
     @menu_links_pages = Paginator.new(@menu_links_count, per_page_option, params[:page])
     @offset ||= @menu_links_pages.offset
-    @menu_links = MenuLink.order("#{MenuLink.table_name}.position ASC")
+    @menu_links = MenuLink.order("#{MenuLink.table_name}.deploy_to DESC").order("#{MenuLink.table_name}.position ASC")
     	.offset(@offset).limit(per_page_option)
 
     render :action => "index", :layout => false if request.xhr?
@@ -49,7 +49,7 @@ class MenuLinksController < ApplicationController
   rescue
     flash[:error] = l(:error_unable_delete_menu_link)
     redirect_to :action => 'index'
-  end 
+  end
 
   private
   def clean_menu_links

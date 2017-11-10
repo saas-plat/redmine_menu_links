@@ -1,1 +1,69 @@
-#admin-menu a.redmine-menu-links { background-image: url(../images/redmine_menu_links.png); }
+/*#admin-menu a.redmine-menu-links {
+    background-image: url(../images/redmine_menu_links.png);
+}*/
+
+#loggedas {
+    display: none;
+}
+
+#account ul {
+    position: absolute;
+    top: 43px;
+    right: 0px;
+    z-index: 100;
+    display: none;
+    /* none by default, but block on "open" of the menu*/
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    /* override default ul*/
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    /* Ensures proper alignment if parent has it changed (e.g., modal footer)*/
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    background-clip: padding-box;
+}
+
+/* Dividers (basically an hr) within the dropdown*/
+
+#account ul .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+#account ul>li {
+    float: none;
+}
+
+
+/* Links within the dropdown menu*/
+
+#account ul>li>a {
+    display: block;
+    padding: 3px 20px;
+    margin: 0px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    /* prevent links from randomly breaking onto new lines*/
+}
+
+
+/* Hover/Focus state*/
+
+#account ul>li>a {
+    &:hover, &:focus {
+        color: #262626;
+        text-decoration: none;
+        background-color: #f5f5f5;
+    }
+}
