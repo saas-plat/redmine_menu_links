@@ -51,6 +51,12 @@ class MenuLinksController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def getuid
+    respond_to do |format|
+      format.json { render json: {:login => User.current.login} }
+     end
+  end
+
   private
   def clean_menu_links
     MenuLink.clean

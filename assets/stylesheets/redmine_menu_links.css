@@ -6,32 +6,77 @@
     display: none;
 }
 
+#account {
+    position: relative;
+}
+
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
 #account ul {
+    right: 0;
+    left: auto;
     position: absolute;
-    top: 43px;
-    right: 0px;
-    z-index: 100;
+    top: 100%;
+    z-index: 1000;
     display: none;
-    /* none by default, but block on "open" of the menu*/
     float: left;
     min-width: 160px;
     padding: 5px 0;
-    margin: 2px 0 0;
-    /* override default ul*/
-    list-style: none;
+    margin: 8px 0 0;
     font-size: 14px;
     text-align: left;
-    /* Ensures proper alignment if parent has it changed (e.g., modal footer)*/
+    list-style: none;
     background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-clip: padding-box;
 }
+
+#account ul::after {
+    top: -14px;
+    right: 10px;
+    left: auto;
+}
+
+#account ul::after {
+    border: 7px solid transparent;
+    border-bottom-color: #fff;
+}
+
+#account ul::before, #account ul::after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+}
+
 
 /* Dividers (basically an hr) within the dropdown*/
 
-#account ul .divider {
+#account ul>li.divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
@@ -42,28 +87,21 @@
     float: none;
 }
 
-
-/* Links within the dropdown menu*/
-
 #account ul>li>a {
     display: block;
     padding: 3px 20px;
-    margin: 0px;
     clear: both;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
-    /* prevent links from randomly breaking onto new lines*/
 }
 
 
 /* Hover/Focus state*/
 
-#account ul>li>a {
-    &:hover, &:focus {
-        color: #262626;
-        text-decoration: none;
-        background-color: #f5f5f5;
-    }
+#account ul>li>a:hover, #account ul>li>a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
 }
